@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
-import PersonalInformation from './components/PersonalInformation';
+import Form from './components/Form';
 
 class App extends Component {
   constructor(props) {
@@ -39,13 +39,47 @@ class App extends Component {
         },
       ],
     };
+
+    this.handleInput = this.handleInput.bind(this);
+  }
+
+  handleInput(e,id) {
+    const info = {...this.state.personalInfo};
+    switch(id){
+      case 'first-name':
+        info.firstName = e.target.value
+        break;
+      case 'last-name':
+        info.lastName = e.target.value
+        break;
+      case 'birth-date':
+        info.birthDate = e.target.value
+        break;
+      case 'location':
+        info.location = e.target.value
+        break;
+      case 'email':
+        info.email = e.target.value
+        break;
+      case 'phone-number':
+        info.phoneNum = e.target.value
+        break;
+      case 'description':
+        info.description = e.target.value
+        break;
+      default:
+        return;
+    }
+    this.setState({
+      personalInfo: info,
+    })
   }
 
   render(){
     return (
       <div>
         <Header />
-        <PersonalInformation />
+        <Form handleInput={this.handleInput} />
       </div>
     );
   }

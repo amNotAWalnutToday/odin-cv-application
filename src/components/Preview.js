@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import PersonalInformation from './PersonalInformation';
 
-class Form extends Component {
+class Preview extends Component {
     render() {
-        const { handleInput, info } = this.props;
+        const { info } = this.props
 
         return(
             <div>
-                <PersonalInformation info={info} handleInput={handleInput} />
+                <PersonalInformation preview={'true'} info={info} />
             </div>
         );
     }
 }
 
-export default Form;
+export default Preview;

@@ -2,11 +2,28 @@ import React, { Component } from 'react';
 import FormInput from './FormInput';
 
 class PersonalInformation extends Component {
+    infoMap() {
+        const infoProps = [];
+        for(const section in this.props.info){
+            infoProps.push(this.props.info[section])
+        }
+        return infoProps.map((item, i) => {
+            return <p key={i}>{item}</p>
+        })
+    }
+
+
     render() {
-        const { handleInput } = this.props;
+        const { handleInput, preview } = this.props;
+
         return(
             <div>
-                <form action="">
+                { preview
+                ?<div>
+                    {this.infoMap()}
+                </div>
+
+                :<form action="">
                     <legend>Personal Information</legend>
                     <FormInput 
                         label="First Name" 
@@ -47,6 +64,7 @@ class PersonalInformation extends Component {
                         handleInput={handleInput}
                     />
                 </form>
+                }
             </div>
         );
     }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/Header';
 import Form from './components/Form';
+import Preview from './components/Preview';
 
 class App extends Component {
   constructor(props) {
@@ -21,7 +22,7 @@ class App extends Component {
         {
           /*Template*/
           company: 'Software inc',
-          position: 'Software engineer',
+          position: 'Software Engineer',
           startDate: '01/01/2021',
           endDate: '01/01/2023',
           extraInfo: 'N/A',
@@ -79,7 +80,8 @@ class App extends Component {
     return (
       <div>
         <Header />
-        <Form handleInput={this.handleInput} />
+        <Form info={this.state.personalInfo} handleInput={this.handleInput} />
+        <Preview info={this.state.personalInfo} />
       </div>
     );
   }

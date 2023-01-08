@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Header';
 import PersonalInformation from './PersonalInformation';
-import Experience from './Experience';
+import PreviewMain from './PreviewMain'
 
 class Preview extends Component {
     render() {
@@ -11,7 +11,7 @@ class Preview extends Component {
             <div id="preview">
                 <Header preview="true" info={info} />
                 <PersonalInformation preview='true' info={info} />
-                <Experience />
+                <PreviewMain info={info}/>
             </div>
         );
     }

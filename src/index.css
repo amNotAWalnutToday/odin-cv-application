@@ -54,7 +54,7 @@ header.preview {
     background-color: bisque;
 }
 
-#experience.preview {
+#preview-main.preview {
     grid-column: 2/3;
     grid-row: 2/3;
     background-color: yellow;

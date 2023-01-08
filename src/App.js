@@ -9,13 +9,13 @@ class App extends Component {
 
     this.state = {
       personalInfo: {
-        firstName: '',
-        lastName: '',
-        birthDate: '',
-        location: '',
-        email: '',
-        phoneNum: '',
-        description: '',
+        firstName: 'Default',
+        lastName: 'Default',
+        birthDate: '2005-1-1',
+        location: 'Default, Default',
+        email: 'Default@default.default',
+        phoneNum: '555-555-5555',
+        description: 'This is a default paragraph that is definitely not the same',
       },
 
       experience: [
@@ -78,7 +78,7 @@ class App extends Component {
 
   render(){
     return (
-      <div>
+      <div id="container">
         <Header />
         <Form info={this.state.personalInfo} handleInput={this.handleInput} />
         <Preview info={this.state.personalInfo} />

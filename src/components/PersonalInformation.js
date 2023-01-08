@@ -5,21 +5,59 @@ class PersonalInformation extends Component {
     infoMap() {
         const infoProps = [];
         for(const section in this.props.info){
-            infoProps.push(this.props.info[section])
+            const exceptions = [
+                section !== 'firstName',
+                section !== 'lastName',
+                section !== 'description',
+                section !== 'birthDate'
+            ];
+            if(exceptions.every(Boolean)){
+                infoProps.push(this.props.info[section]);
+            } else if(!exceptions[3]) {
+                infoProps.push(this.convertDate(this.props.info[section]))
+            }
         }
         return infoProps.map((item, i) => {
-            return <p key={i}>{item}</p>
+            return <div key={i}>
+                    <h3>{this.convertProperty(i)}</h3>
+                    <p>{item}</p>
+                    <hr />
+                </div>
         })
     }
 
+    convertProperty(prop) {
+        let result;
+        switch(prop){
+            case 0:
+                result = 'Birth Date' 
+                break;
+            case 1:
+                result = 'Location'
+                break;
+            case 2:
+                result = 'Email'
+                break;
+            case 3:
+                result = 'Phone'
+                break;
+            default:
+                return;
+        }
+        return result;
+    }
+
+    convertDate(date) {
+        return date.split('-').reverse().join('/');
+    }
 
     render() {
         const { handleInput, preview } = this.props;
 
         return(
-            <div>
+            <div id={preview ? 'preview-sidebar' : undefined}>
                 { preview
-                ?<div>
+                ?<div id="preview-info">
                     {this.infoMap()}
                 </div>
 

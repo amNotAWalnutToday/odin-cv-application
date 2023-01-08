@@ -6,7 +6,7 @@ class Form extends Component {
         const { handleInput, info } = this.props;
 
         return(
-            <div>
+            <div id="form">
                 <PersonalInformation info={info} handleInput={handleInput} />
             </div>
         );

@@ -8,6 +8,7 @@ class App extends Component {
     super(props);
 
     this.state = {
+      /*Input Holders*/
       personalInfo: {
         firstName: 'Default',
         lastName: 'Default',
@@ -18,6 +19,15 @@ class App extends Component {
         description: 'This is a default paragraph that is definitely not the same',
       },
 
+      experienceInput: {
+        company: 'Software inc',
+        position: 'Software Engineer',
+        startDate: '01/01/2021',
+        endDate: '01/01/2023',
+        extraInfo: 'N/A',
+      },
+
+      /*info holders*/
       experience: [
         {
           /*Template*/
@@ -42,11 +52,27 @@ class App extends Component {
     };
 
     this.handleInput = this.handleInput.bind(this);
+    this.handleAdd = this.handleAdd.bind(this); 
   }
 
-  handleInput(e,id) {
+  handleInput(e, id, type) {
+    let info;
+    let exp;
+    let education;
+    if(type === 'personal') {
+      info = this.handlePersonalInfo(e,id);
+      this.setState({personalInfo: info});
+    } else if(type === 'experience') {
+      exp = this.handleExperienceInput(e, id);
+      this.setState({experienceInput: exp});
+    } else if(type === 'education') {
+      /*TBA*/
+    }
+  }
+
+  handlePersonalInfo(e,id) {
     const info = {...this.state.personalInfo};
-    switch(id){
+    switch(id) {
       case 'first-name':
         info.firstName = e.target.value
         break;
@@ -71,16 +97,51 @@ class App extends Component {
       default:
         return;
     }
+    return info;
+  }
+
+  handleExperienceInput(e, id) {
+    const info = {...this.state.experienceInput};
+    switch(id) {
+      case 'company':
+        info.company = e.target.value;
+        break;
+      case 'position':
+        info.position = e.target.value;
+        break;
+      case 'start-date':
+        info.startDate = e.target.value;
+        break;
+      case 'end-date':
+        info.endDate = e.target.value;
+        break;
+      case 'extra-info':
+        info.extraInfo = e.target.value;
+        break;
+      default:
+        return;
+    }
+    return info
+  }
+
+  handleAdd() {
+    const experience = [...this.state.experience];
+    experience.push(this.state.experienceInput);
     this.setState({
-      personalInfo: info,
-    })
+      experience: experience,
+    });
+    console.log(this.state.experience);
   }
 
   render(){
     return (
       <div id="container">
         <Header />
-        <Form info={this.state.personalInfo} handleInput={this.handleInput} />
+        <Form 
+          info={this.state.personalInfo} 
+          handleInput={this.handleInput} 
+          handleAdd={this.handleAdd}
+        />
         <Preview info={this.state.personalInfo} />
       </div>
     );

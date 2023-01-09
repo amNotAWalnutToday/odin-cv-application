@@ -170,6 +170,8 @@ class App extends Component {
   }
 
   render(){
+    const { personalInfo, experience, education } = this.state
+
     return (
       <div id="container">
         <Header />
@@ -178,8 +180,9 @@ class App extends Component {
           handleAdd={this.handleAdd}
         />
         <Preview 
-          info={this.state.personalInfo}
-          experience={this.state.experience}
+          info={personalInfo}
+          experience={experience}
+          education={education}
         />
       </div>
     );

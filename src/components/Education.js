@@ -2,12 +2,32 @@ import React, { Component } from 'react';
 import FormInput from './FormInput';
 
 class Education extends Component {
+    infoMap() {
+        return this.props.education.map((item, i) => {
+            return <div className="preview education" key={i}>
+                        <div>
+                            <p className="date">{item.startDate} - {item.endDate}</p>
+                            <h3 className="position">{item.course}</h3>
+                        </div>
+                        <div>
+                            <h3>{item.university}</h3>
+                            <p className="description">{item.extraInfo}</p>
+                        </div>
+                    </div>
+        });
+    }
+
     render() {
-        const { handleInput, handleAdd } = this.props;
+        const { handleInput, handleAdd, preview } = this.props;
 
         return(
             <div>
-                <form action="">
+                {preview 
+                ? <div>
+                    {this.infoMap()}
+                </div>
+
+                :<form action="">
                     <legend>Education</legend>
                     <FormInput 
                         label="University"
@@ -43,6 +63,7 @@ class Education extends Component {
                         Add
                     </button>
                 </form>
+                }
             </div>
         );
     }

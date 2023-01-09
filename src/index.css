@@ -79,6 +79,7 @@ header.preview {
     padding: 5rem 2rem;
 }
 
+.preview.education,
 .preview.experience {
     display: flex;
     justify-content: flex-start;
@@ -86,6 +87,7 @@ header.preview {
     padding-right: 5rem;
 }
 
+.preview.education div,
 .preview.experience div {
     display: flex;
     flex-direction: column;
@@ -94,6 +96,7 @@ header.preview {
     margin: 2rem 0;
 }
 
+.preview.education div:first-child,
 .preview.experience div:first-child {
     align-items: flex-end;
 }
@@ -121,6 +124,7 @@ header.preview {
     font-size: 18px;
 }
 
+.preview.education h3,
 .preview.experience h3{
     font-size: 20px;
 }

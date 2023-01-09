@@ -8,7 +8,9 @@ class Header extends Component {
 
         return(
             <header className={preview ? 'preview' : undefined}>
-                <h1>{preview ? name : 'CV Builder'}</h1>
+                <h1 className={preview ? 'preview name' : ''}>
+                    {preview ? name : 'CV Builder'}
+                </h1>
             </header>
         );
     }

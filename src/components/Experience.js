@@ -4,14 +4,14 @@ import FormInput from './FormInput';
 class Experience extends Component {
     infoMap() {
         return this.props.experience.map((item, i) => {
-            return <div key={i}>
+            return <div className="preview experience" key={i}>
                         <div>
-                            <p>{item.startDate} - {item.endDate}</p>
-                            <p>{item.position}</p>
+                            <p className="date">{item.startDate} - {item.endDate}</p>
+                            <h3 className="position">{item.position}</h3>
                         </div>
                         <div>
-                            <p>{item.company}</p>
-                            <p>{item.extraInfo}</p>
+                            <h3>{item.company}</h3>
+                            <p className="description">{item.extraInfo}</p>
                         </div>
                     </div>
         });
@@ -20,7 +20,7 @@ class Experience extends Component {
     render() {
         const { preview, handleInput, handleAdd } = this.props
         return(
-            <div id="experience">
+            <div id={preview ? 'preview-experience' : "experience"}>
                 {preview 
                 ?<div>
                     {this.infoMap()}

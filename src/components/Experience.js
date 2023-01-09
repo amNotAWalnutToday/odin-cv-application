@@ -2,11 +2,31 @@ import React, { Component } from 'react';
 import FormInput from './FormInput';
 
 class Experience extends Component {
+    infoMap() {
+        return this.props.experience.map((item, i) => {
+            return <div key={i}>
+                        <div>
+                            <p>{item.startDate} - {item.endDate}</p>
+                            <p>{item.position}</p>
+                        </div>
+                        <div>
+                            <p>{item.company}</p>
+                            <p>{item.extraInfo}</p>
+                        </div>
+                    </div>
+        });
+    }
+
     render() {
-        const { handleInput, handleAdd } = this.props
+        const { preview, handleInput, handleAdd } = this.props
         return(
             <div id="experience">
-                <form action="">
+                {preview 
+                ?<div>
+                    {this.infoMap()}
+                </div>
+
+                :<form action="">
                     <legend>Experience</legend>
                     <FormInput 
                         label="Company"
@@ -37,6 +57,7 @@ class Experience extends Component {
                     />
                     <button type="button" onClick={handleAdd}>Add</button>
                 </form>
+                }
             </div>
         );
     }

@@ -5,13 +5,13 @@ import PreviewMain from './PreviewMain'
 
 class Preview extends Component {
     render() {
-        const { info } = this.props
+        const { info, experience } = this.props
 
         return(
             <div id="preview">
                 <Header preview="true" info={info} />
                 <PersonalInformation preview='true' info={info} />
-                <PreviewMain info={info}/>
+                <PreviewMain info={info} experience={experience} />
             </div>
         );
     }

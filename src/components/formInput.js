@@ -18,8 +18,16 @@ class FormInput extends Component {
             id === 'end-date',
             id === 'extra-info',
         ];
+        const educationCons = [
+            id === 'university',
+            id === 'course',
+            id === 'start-date-edu',
+            id === 'end-date-edu',
+            id === 'extra-info-edu',
+        ];
         if(infoCons.some(Boolean)) return 'personal';
         if(experienceCons.some(Boolean)) return 'experience'
+        if(educationCons.some(Boolean)) return 'education'
     }
 
     render() {

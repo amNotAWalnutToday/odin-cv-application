@@ -55,7 +55,12 @@ class Experience extends Component {
                         id="extra-info"
                         handleInput={handleInput}
                     />
-                    <button type="button" onClick={handleAdd}>Add</button>
+                    <button 
+                        type="button"
+                        onClick={() => handleAdd('experience')}
+                    >
+                        Add
+                    </button>
                 </form>
                 }
             </div>

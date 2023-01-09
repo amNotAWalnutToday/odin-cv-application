@@ -27,6 +27,14 @@ class App extends Component {
         extraInfo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut',
       },
 
+      educationInput: {
+        university: 'The University',
+        course: 'Computer Science',
+        startDate: '01/01/2017',
+        endDate: '01/01/2020',
+        extraInfo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      },
+
       /*info holders*/
       experience: [
         {
@@ -66,7 +74,8 @@ class App extends Component {
       exp = this.handleExperienceInput(e, id);
       this.setState({experienceInput: exp});
     } else if(type === 'education') {
-      /*TBA*/
+      education = this.handleEducationInput(e, id);
+      this.setState({educationInput: education})
     }
   }
 
@@ -124,13 +133,40 @@ class App extends Component {
     return info
   }
 
-  handleAdd() {
-    const experience = [...this.state.experience];
-    experience.push(this.state.experienceInput);
-    this.setState({
-      experience: experience,
-    });
-    console.log(this.state.experience);
+  handleEducationInput(e, id) {
+    const info = {...this.state.educationInput};
+    switch(id) {
+      case 'university':
+        info.university = e.target.value;
+        break;
+      case 'course':
+        info.course = e.target.value;
+        break;
+      case 'start-date-edu':
+        info.startDate = e.target.value;
+        break;
+      case 'end-date-edu':
+        info.endDate = e.target.value;
+        break;
+      case 'extra-info-edu':
+        info.extraInfo = e.target.value;
+        break;
+      default:
+        return;
+    }
+    return info;
+  }
+
+  handleAdd(type) {
+    if(type === 'experience'){
+      const experience = [...this.state.experience];
+      experience.push(this.state.experienceInput);
+      this.setState({experience: experience});
+    } else if(type === 'education') {
+      const education = [...this.state.education];
+      education.push(this.state.educationInput);
+      this.setState({education: education});
+    }
   }
 
   render(){
@@ -138,7 +174,6 @@ class App extends Component {
       <div id="container">
         <Header />
         <Form 
-          info={this.state.personalInfo} 
           handleInput={this.handleInput} 
           handleAdd={this.handleAdd}
         />

@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import PersonalInformation from './PersonalInformation';
 import Experience from './Experience';
+import Education from './Education';
 
 class Form extends Component {
     render() {
-        const { handleInput, handleAdd, info } = this.props;
+        const { handleInput, handleAdd } = this.props;
 
         return(
             <div id="form">
-                <PersonalInformation info={info} handleInput={handleInput} />
+                <PersonalInformation 
+                    handleInput={handleInput} 
+                />
                 <Experience 
-                    info={info}
+                    handleInput={handleInput}
+                    handleAdd={handleAdd}
+                />
+                <Education 
                     handleInput={handleInput}
                     handleAdd={handleAdd}
                 />

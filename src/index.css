@@ -67,7 +67,6 @@ header.preview {
     grid-row: 2/3;
     color: red;
     background-color: pink;
-    border: 2px solid black;
 }
 
 #preview-info {
@@ -76,7 +75,7 @@ header.preview {
     gap: 1rem;
     word-wrap: break-word;
     font-size: 2rem;
-    padding: 5rem 2rem;
+    padding: 3rem 2rem;
 }
 
 .preview.education,
@@ -119,6 +118,17 @@ header.preview {
     font-size: 36px;
 }
 
+#preview-info div:not(.fake-img-bg) h3 {
+    text-align: end;
+    margin-bottom: 0.7rem;
+}
+
+#preview-info div:not(.fake-img-bg) p {
+    font-size: 14px;
+    text-align: end;
+    margin-bottom: 1.25rem;
+}
+
 .preview.profile {
     margin: 1rem 0 2.5rem 0;
     font-size: 18px;
@@ -127,4 +137,22 @@ header.preview {
 .preview.education h3,
 .preview.experience h3{
     font-size: 20px;
+}
+
+/* Images */
+.fake-img-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    margin-bottom: 2rem;
+    background-color: darkslategrey;
+    border-radius: 5px; 
+}
+
+.fake-img {
+    width: 46px;
+    height: 46px;
+    background: url('./img/image-plus-outline.png');
 }

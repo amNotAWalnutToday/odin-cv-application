@@ -58,6 +58,9 @@ class PersonalInformation extends Component {
             <div id={preview ? 'preview-sidebar' : undefined}>
                 { preview
                 ?<div id="preview-info">
+                    <div className="fake-img-bg">
+                        <div className="fake-img"></div>
+                    </div>
                     {this.infoMap()}
                 </div>
 

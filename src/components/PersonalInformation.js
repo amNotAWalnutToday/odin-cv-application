@@ -2,6 +2,14 @@ import React, { Component } from 'react';
 import FormInput from './FormInput';
 
 class PersonalInformation extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            hoverImage: false
+        };
+        this.hoverImage = this.hoverImage.bind(this);
+    }
+
     infoMap() {
         const infoProps = [];
         for(const section in this.props.info){
@@ -51,6 +59,13 @@ class PersonalInformation extends Component {
         return date.split('-').reverse().join('/');
     }
 
+    hoverImage() {
+        let state = this.state.hoverImage;
+        if(state) state = false;
+        else state = true;
+        this.setState({hoverImage: state});
+    }
+
     render() {
         const { handleInput, preview } = this.props;
 
@@ -58,8 +73,14 @@ class PersonalInformation extends Component {
             <div id={preview ? 'preview-sidebar' : undefined}>
                 { preview
                 ?<div id="preview-info">
-                    <div className="fake-img-bg">
-                        <div className="fake-img"></div>
+                    <div 
+                        className="fake-img-bg"
+                        onMouseEnter={this.hoverImage}
+                        onMouseLeave={this.hoverImage} 
+                    >
+                        <div className="fake-img">
+                        </div>
+                        <p className="fake-text">{this.state.hoverImage ? 'Upload Image' : ''}</p>
                     </div>
                     {this.infoMap()}
                 </div>

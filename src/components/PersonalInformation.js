@@ -64,41 +64,47 @@ class PersonalInformation extends Component {
                     {this.infoMap()}
                 </div>
 
-                :<form action="">
+                :<form id="personal-information" action="">
                     <legend>Personal Information</legend>
-                    <FormInput 
-                        label="First Name" 
-                        id="first-name"
-                        handleInput={handleInput}
-                    />
-                    <FormInput 
-                        label="Last Name" 
-                        id="last-name"
-                        handleInput={handleInput}
-                    />
-                    <FormInput 
-                        label="Birth Date" 
-                        id="birth-date" 
-                        type="date"
-                        handleInput={handleInput} 
-                    />
-                    <FormInput 
-                        label="Location" 
-                        id="location"
-                        handleInput={handleInput} 
-                    />
-                    <FormInput 
-                        label="Email" 
-                        id="email" 
-                        type="email"
-                        handleInput={handleInput}
-                    />
-                    <FormInput 
-                        label="Phone Number" 
-                        id="phone-number"
-                        type="tel"
-                        handleInput={handleInput}
-                    />
+                    <div>
+                        <div>
+                            <FormInput
+                                label="First Name"
+                                id="first-name"
+                                handleInput={handleInput}
+                            />
+                            <FormInput
+                                label="Last Name"
+                                id="last-name"
+                                handleInput={handleInput}
+                            />
+                            <FormInput
+                                label="Birth Date"
+                                id="birth-date"
+                                type="date"
+                                handleInput={handleInput}
+                            />
+                        </div>
+                        <div>
+                            <FormInput
+                                label="Location"
+                                id="location"
+                                handleInput={handleInput}
+                            />
+                            <FormInput
+                                label="Email"
+                                id="email"
+                                type="email"
+                                handleInput={handleInput}
+                            />
+                            <FormInput
+                                label="Phone Number"
+                                id="phone-number"
+                                type="tel"
+                                handleInput={handleInput}
+                            />
+                        </div>
+                    </div>
                     <FormInput 
                         label="About Yourself" 
                         id="description"

@@ -22,7 +22,7 @@ class PersonalInformation extends Component {
             if(exceptions.every(Boolean)){
                 infoProps.push(this.props.info[section]);
             } else if(!exceptions[3]) {
-                infoProps.push(this.convertDate(this.props.info[section]))
+                infoProps.push(this.props.info[section]);
             }
         }
         return infoProps.map((item, i) => {
@@ -38,25 +38,21 @@ class PersonalInformation extends Component {
         let result;
         switch(prop){
             case 0:
-                result = 'Birth Date' 
+                result = 'Birth Date' ;
                 break;
             case 1:
-                result = 'Location'
+                result = 'Location';
                 break;
             case 2:
-                result = 'Email'
+                result = 'Email';
                 break;
             case 3:
-                result = 'Phone'
+                result = 'Phone';
                 break;
             default:
                 return;
         }
         return result;
-    }
-
-    convertDate(date) {
-        return date.split('-').reverse().join('/');
     }
 
     hoverImage() {

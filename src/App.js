@@ -12,7 +12,7 @@ class App extends Component {
       personalInfo: {
         firstName: 'Default',
         lastName: 'Default',
-        birthDate: '2005-1-1',
+        birthDate: '01/01/2005',
         location: 'Default, Default',
         email: 'Default@default.default',
         phoneNum: '555-555-5555',
@@ -63,6 +63,10 @@ class App extends Component {
     this.handleAdd = this.handleAdd.bind(this); 
   }
 
+  convertDate(date) {
+    return date.split('-').reverse().join('/');
+  }
+
   handleInput(e, id, type) {
     let info;
     let exp;
@@ -83,25 +87,25 @@ class App extends Component {
     const info = {...this.state.personalInfo};
     switch(id) {
       case 'first-name':
-        info.firstName = e.target.value
+        info.firstName = e.target.value;
         break;
       case 'last-name':
-        info.lastName = e.target.value
+        info.lastName = e.target.value;
         break;
       case 'birth-date':
-        info.birthDate = e.target.value
+        info.birthDate = this.convertDate(e.target.value);
         break;
       case 'location':
-        info.location = e.target.value
+        info.location = e.target.value;
         break;
       case 'email':
-        info.email = e.target.value
+        info.email = e.target.value;
         break;
       case 'phone-number':
-        info.phoneNum = e.target.value
+        info.phoneNum = e.target.value;
         break;
       case 'description':
-        info.description = e.target.value
+        info.description = e.target.value;
         break;
       default:
         return;
@@ -119,10 +123,10 @@ class App extends Component {
         info.position = e.target.value;
         break;
       case 'start-date':
-        info.startDate = e.target.value;
+        info.startDate = this.convertDate(e.target.value);
         break;
       case 'end-date':
-        info.endDate = e.target.value;
+        info.endDate = this.convertDate(e.target.value);
         break;
       case 'extra-info':
         info.extraInfo = e.target.value;
@@ -143,10 +147,10 @@ class App extends Component {
         info.course = e.target.value;
         break;
       case 'start-date-edu':
-        info.startDate = e.target.value;
+        info.startDate = this.convertDate(e.target.value);
         break;
       case 'end-date-edu':
-        info.endDate = e.target.value;
+        info.endDate = this.convertDate(e.target.value);
         break;
       case 'extra-info-edu':
         info.extraInfo = e.target.value;

@@ -8,6 +8,11 @@ class Experience extends Component {
                         <div>
                             <p className="date">{item.startDate} - {item.endDate}</p>
                             <h3 className="position">{item.position}</h3>
+                            <button 
+                                onClick={(e) => this.props.removeMap(e)}
+                            >
+                                Remove
+                            </button>
                         </div>
                         <div>
                             <h3>{item.company}</h3>

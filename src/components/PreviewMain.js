@@ -3,6 +3,10 @@ import Experience from './Experience';
 import Education from './Education';
 
 class PreviewMain extends Component {
+    removeMap(e) {
+        e.target.parentNode.parentNode.remove();
+    } 
+
     render() {
         const { experience, education } = this.props;
 
@@ -12,10 +16,18 @@ class PreviewMain extends Component {
                 <p className="preview profile">{this.props.info.description}</p>
                 <hr />
                 <h1 className="preview header">Experience</h1>
-                <Experience preview="true" experience={experience}/>
+                <Experience 
+                    preview="true"
+                    experience={experience}
+                    removeMap={this.removeMap}
+                />
                 <hr />
                 <h1 className="preview header">Education</h1>
-                <Education preview="true" education={education} />
+                <Education 
+                    preview="true"
+                    education={education} 
+                    removeMap={this.removeMap}
+                />
             </div>
         );
     }

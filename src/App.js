@@ -10,29 +10,29 @@ class App extends Component {
     this.state = {
       /*Input Holders*/
       personalInfo: {
-        firstName: 'Default',
-        lastName: 'Default',
+        firstName: 'Thefirst',
+        lastName: 'Andlast',
         birthDate: '01/01/2005',
         location: 'Default, Default',
-        email: 'Default@default.default',
+        email: 'Default@default.com',
         phoneNum: '555-555-5555',
-        description: 'This is a default paragraph that is definitely not the same',
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut',
       },
 
       experienceInput: {
-        company: 'Software inc',
-        position: 'Software Engineer',
-        startDate: '01/01/2021',
-        endDate: '01/01/2023',
-        extraInfo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut',
+        company: '',
+        position: '',
+        startDate: '',
+        endDate: '',
+        extraInfo: '',
       },
 
       educationInput: {
-        university: 'The University',
-        course: 'Computer Science',
-        startDate: '01/01/2017',
-        endDate: '01/01/2020',
-        extraInfo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+        university: '',
+        course: '',
+        startDate: '',
+        endDate: '',
+        extraInfo: '',
       },
 
       /*info holders*/
@@ -54,7 +54,7 @@ class App extends Component {
           course: 'Computer Science',
           startDate: '01/01/2017',
           endDate: '01/01/2020',
-          extraInfo: 'N/A',
+          extraInfo: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         },
       ],
     };
